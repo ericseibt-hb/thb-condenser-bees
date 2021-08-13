@@ -1,27 +1,70 @@
 {
     "initial_targets": [
         {
-            "table": "public.target_table",
+            "table": "public.claims",
             "percent": 10
         }
     ],
     "db_type": "postgres",
     "source_db_connection_info": {
-        "user_name": "user",
-        "host": "host.host.com",
-        "db_name": "source_db",
-        "port": 5432
+        "user_name": "ericseibt",
+        "password": "",
+        "host": "localhost",
+        "db_name": "stage_bees_restore",
+    "port": 5432
     },
     "destination_db_connection_info": {
-        "user_name": "user",
-        "host": "host.host.com",
-        "db_name": "destination_db",
+        "user_name": "ericseibt",
+        "password": "",
+        "host": "localhost",
+        "db_name": "stage_bees_restore__condenser",
         "port": 5432
     },
     "keep_disconnected_tables": false,
     "excluded_tables": [ ],
     "passthrough_tables": [ ],
-    "dependency_breaks": [ ],
+    "dependency_breaks": [
+        {
+            "fk_table": "public.phone_calls",
+            "target_table": "public.phone_calls"
+        },
+        {
+            "fk_table": "public.bank_transactions",
+            "target_table": "public.timesheets"
+        },
+        {
+            "fk_table": "public.call_timesheet_links",
+            "target_table": "public.timesheets"
+        },
+        {
+            "fk_table": "public.claim_timesheets",
+            "target_table": "public.timesheets"
+        },
+        {
+            "fk_table": "public.clock_in_calls",
+            "target_table": "public.timesheets"
+        },
+        {
+            "fk_table": "public.clock_out_calls",
+            "target_table": "public.timesheets"
+        },
+        {
+            "fk_table": "public.partner_approvals",
+            "target_table": "public.timesheets"
+        },
+        {
+            "fk_table": "public.requested_timesheet_changes",
+            "target_table": "public.timesheets"
+        },
+        {
+            "fk_table": "public.timesheet_events",
+            "target_table": "public.timesheets"
+        },
+        {
+            "fk_table": "public.timesheets",
+            "target_table": "public.partner_approvals"
+        }
+     ],
     "fk_augmentation": [ ],
     "upstream_filters": [ ]
  }
