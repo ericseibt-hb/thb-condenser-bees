@@ -3,6 +3,18 @@
         {
             "table": "public.claims",
             "percent": 10
+        },
+        {
+            "table": "public.timesheets",
+            "percent": 10
+        },
+        {
+            "table": "public.customers",
+            "percent": 10
+        },
+        {
+            "table": "public.visit_geolocations",
+            "percent": 10
         }
     ],
     "db_type": "postgres",
